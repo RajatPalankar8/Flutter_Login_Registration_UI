@@ -15,4 +15,4 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-![](images/assets/UIForGetUIReadme1.png =24x48)
+![](images/assets/UIForGetUIReadme1.png){:height="50%" width="50%"}
