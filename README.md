@@ -1,10 +1,10 @@
 # flutter_login_ui
 
-A new Flutter application.
+A new Flutter Login Registration UI design
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a starting point for a Flutter Login Registration UI design.
 
 A few resources to get you started if this is your first Flutter project:
 
