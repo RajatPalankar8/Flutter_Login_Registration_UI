@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "432176727619",
+    "firebase_url": "https://cryptic-ground-271915.firebaseio.com",
+    "project_id": "cryptic-ground-271915",
+    "storage_bucket": "cryptic-ground-271915.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432176727619:android:dabd9d96a3e025aaca36f6",
+        "android_client_info": {
+          "package_name": "com.example.flutter_login_ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "432176727619-lu054vpvnb23ttjd3fv3us2g70ssq3r1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAv50qT1PhUpWbtQlFBqPL8svRccEDrzVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "432176727619-lu054vpvnb23ttjd3fv3us2g70ssq3r1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,11 +3,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_login_ui/LoginPage.dart';
-import 'package:flutter_login_ui/RegistrationPage.dart';
-import 'package:flutter_login_ui/SocialSignWidgetRow.dart';
+import 'file:///C:/Android%20Studio%20Stuff/Flutter%20Project/flutter_login_ui/lib/Screen/LoginPage.dart';
+import 'file:///C:/Android%20Studio%20Stuff/Flutter%20Project/flutter_login_ui/lib/Screen/RegistrationPage.dart';
+import 'file:///C:/Android%20Studio%20Stuff/Flutter%20Project/flutter_login_ui/lib/Widgets/SocialSignWidgetRow.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:get/get.dart';
 final GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
 class WelcomePage extends StatelessWidget {
   bool back = false;
@@ -61,7 +62,9 @@ class WelcomePage extends StatelessWidget {
                     GestureDetector(
                       onTap: (){
                         print("Login Clicked");
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+                        // Get.to(LoginPage());
+                         //Get.toNamed('/login');
+                         Get.offNamed('/login');
                       },
                         child: "Login".text.white.light.xl.makeCentered().box.white.shadowOutline(outlineColor: Colors.grey).color(Color(0XFFFF0772)).roundedLg.make().w(150).h(40)),
                     HeightBox(20),
@@ -79,7 +82,11 @@ class WelcomePage extends StatelessWidget {
       ),
       bottomNavigationBar: GestureDetector(
         onTap: (){
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>RegistrationPage()));
+          //Get.offAll(RegistrationPage());
+
+          Get.offNamed('/reg');
+
+          
         },
         child: RichText(text: TextSpan(
           text: 'New User?',
