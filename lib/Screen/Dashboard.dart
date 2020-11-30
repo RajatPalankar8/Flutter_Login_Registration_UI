@@ -14,14 +14,19 @@ class Dashboard extends GetWidget<FirebaseController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.network(controller.imageurl),
             RaisedButton(onPressed: (){
              //logout
               controller.signout();
-            },child: Text("Sign Out"),),
+            },child: Text("Sign Out ${controller.user}"),),
             RaisedButton(onPressed: (){
               //logout
               Get.to(DeleteAccount());
             },child: Text("Delete Account"),),
+            RaisedButton(onPressed: (){
+              //logout
+              controller.google_signOut();
+            },child: Text("Sign out Google Sign in"),),
           ],
         ),
       ),

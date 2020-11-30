@@ -1,3 +1,4 @@
+
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -161,7 +162,11 @@ class RegistrationPage extends GetWidget<FirebaseController>{
                       ),
                       HeightBox(20),
                       GestureDetector(
-                          onTap: RegisterUser,
+                          onTap:(){
+                            final close = context.showLoading(msg: "Loading");
+                            Future.delayed(4.seconds, close); // Removes toast after 2 seconds
+                            RegisterUser();
+                          },
                           child: "Sign-Up".text.white.light.xl.makeCentered().box.white.shadowOutline(outlineColor: Colors.grey).color(Color(0XFFFF0772)).roundedLg.make().w(150).h(40)),
                       HeightBox(140),
                       "Login with".text.black.makeCentered(),
@@ -197,6 +202,7 @@ class RegistrationPage extends GetWidget<FirebaseController>{
     );
   }
   void RegisterUser() {
+
 
      controller.createUser(firstn.text, lastn.text, email.text, password.text);
 
