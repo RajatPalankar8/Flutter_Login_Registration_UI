@@ -1,8 +1,10 @@
-import 'GetXHelper/FirebaseController.dart';
+
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'Screen/LoginPage.dart';
-import 'Screen/Dashboard.dart';
+
+import 'GetXExample/GetXHelper/FirebaseController.dart';
+import 'GetXExample/Screen/Dashboard.dart';
+import 'GetXExample/Screen/LoginPage.dart';
 
 class IsSignedIn extends GetWidget<FirebaseController> {
   @override

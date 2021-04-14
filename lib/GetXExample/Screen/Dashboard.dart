@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login_ui/GetXHelper/FirebaseController.dart';
-import 'package:flutter_login_ui/Screen/DeleteAccount.dart';
+import 'package:flutter_login_ui/GetXExample/GetXHelper/FirebaseController.dart';
+
 
 import 'package:get/get.dart';
+
+import 'DeleteAccount.dart';
 
 class Dashboard extends GetWidget<FirebaseController> {
 
 
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       body: Center(
         child: Column(

@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import 'GetXHelper/FirebaseController.dart';
+import 'GetXExample/GetXHelper/FirebaseController.dart';
+
 
 class InstanceBinding extends Bindings{
   @override

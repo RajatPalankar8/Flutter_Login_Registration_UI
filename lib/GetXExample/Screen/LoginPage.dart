@@ -1,14 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_login_ui/GetXHelper/FirebaseController.dart';
-import 'package:flutter_login_ui/Screen/RegistrationPage.dart';
-import 'file:///C:/Android%20Studio%20Stuff/Flutter%20Project/flutter_login_ui/lib/Widgets/SocialSignWidgetRow.dart';
+import 'package:flutter_login_ui/GetXExample/GetXHelper/FirebaseController.dart';
+import 'package:flutter_login_ui/GetXExample/Widgets/SocialSignWidgetRow.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class DeleteAccount extends GetWidget<FirebaseController> {
+import 'ForgotPassword.dart';
+import 'RegistrationPage.dart';
+
+class LoginPage extends GetWidget<FirebaseController> {
 
   TextEditingController email = TextEditingController();
   TextEditingController pass = TextEditingController();
@@ -37,7 +40,7 @@ class DeleteAccount extends GetWidget<FirebaseController> {
                         width: 100,
                         child: SvgPicture.asset("images/assets/xing.svg")),
                     HeightBox(10),
-                    "Delete Account".text.color(Colors.white).size(20).make(),
+                    "Login".text.color(Colors.white).size(20).make(),
                     HeightBox(
                         20
                     ),
@@ -49,16 +52,16 @@ class DeleteAccount extends GetWidget<FirebaseController> {
                           hintText: 'Email',
                           hintStyle: TextStyle(color: Colors.white),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(10.0),
+                              borderRadius: new BorderRadius.circular(10.0),
                             borderSide: BorderSide(
-                                color: Colors.white
+                              color: Colors.white
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
-                              borderRadius: new BorderRadius.circular(10.0),
-                              borderSide: BorderSide(
-                                  color: Colors.blue[400]
-                              )
+                            borderRadius: new BorderRadius.circular(10.0),
+                            borderSide: BorderSide(
+                              color: Colors.blue[400]
+                            )
                           ),
                           isDense: true,                      // Added this
                           contentPadding: EdgeInsets.fromLTRB(10, 20, 10, 10),
@@ -67,9 +70,9 @@ class DeleteAccount extends GetWidget<FirebaseController> {
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
-                    HeightBox(
-                        20
-                    ),
+                HeightBox(
+                  20
+                ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                       child: TextField(
@@ -98,13 +101,21 @@ class DeleteAccount extends GetWidget<FirebaseController> {
                     ),
                     HeightBox(20),
 
+                    GestureDetector(onTap: (){
+                      Get.to(ForgotPassword());
+                    },
+                    child: Text("Forgot Password ? Reset Now",style: TextStyle(color: Colors.white),),),
+
+                    HeightBox(10),
                     GestureDetector(
                         onTap: (){
                           print("Login Clicked Event");
-                          controller.deleteuseraccount(email.text, pass.text);
+                          _login();
                         },
-                        child: "Delete Account".text.white.light.xl.makeCentered().box.white.shadowOutline(outlineColor: Colors.grey).color(Color(0XFFFF0772)).roundedLg.make().w(150).h(40)),
-
+                        child: "Login".text.white.light.xl.makeCentered().box.white.shadowOutline(outlineColor: Colors.grey).color(Color(0XFFFF0772)).roundedLg.make().w(150).h(40)),
+                    HeightBox(20),
+                    "Login with".text.white.makeCentered(),
+                    SocialSignWidgetRow()
 
                   ],
                 ),
@@ -112,7 +123,25 @@ class DeleteAccount extends GetWidget<FirebaseController> {
             ],
           ),
         ),
-
+        bottomNavigationBar: GestureDetector(
+          onTap: (){
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>RegistrationPage()));
+          },
+          child: RichText(text: TextSpan(
+            text: 'New User?',
+            style: TextStyle(fontSize: 15.0, color: Colors.black),
+            children: <TextSpan>[
+              TextSpan(
+                text: ' Register Now',
+                style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                    color: Color(0XFF4321F5)),
+              ),
+            ],
+          )
+          ).pLTRB(20, 0, 0, 15),
+        )
     );
   }
 

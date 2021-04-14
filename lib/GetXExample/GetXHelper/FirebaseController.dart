@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_login_ui/Screen/Dashboard.dart';
-import 'package:flutter_login_ui/Screen/LoginPage.dart';
+import 'package:flutter_login_ui/GetXExample/Screen/Dashboard.dart';
+import 'package:flutter_login_ui/GetXExample/Screen/LoginPage.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -14,7 +14,7 @@ class FirebaseController extends GetxController{
 
   GoogleSignIn googleSignIn = GoogleSignIn(scopes: ['email']);
   static final FacebookLogin facebookSignIn = new FacebookLogin();
-  Rx<User> _firebaseUser = Rx<User>();
+  Rxn<User> _firebaseUser = Rxn<User>();
 
 
  String get user => _firebaseUser.value?.email;

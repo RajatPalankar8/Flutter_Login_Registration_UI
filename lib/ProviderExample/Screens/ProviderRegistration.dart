@@ -1,24 +1,24 @@
-
-import 'dart:math';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_login_ui/GetXHelper/FirebaseController.dart';
-import 'file:///C:/Android%20Studio%20Stuff/Flutter%20Project/flutter_login_ui/lib/Screen/LoginPage.dart';
-import 'file:///C:/Android%20Studio%20Stuff/Flutter%20Project/flutter_login_ui/lib/Widgets/SocialSignWidgetRow.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_login_ui/ProviderExample/ProviderHelper/ProviderState.dart';
+import 'package:flutter_login_ui/ProviderExample/Screens/ProviderLogin.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:get/get.dart';
+class ProviderRegistration extends StatefulWidget {
+  @override
+  _ProviderRegistrationState createState() => _ProviderRegistrationState();
+}
 
-class RegistrationPage extends GetWidget<FirebaseController>{
+class _ProviderRegistrationState extends State<ProviderRegistration> {
   final TextEditingController firstn = TextEditingController();
   final TextEditingController lastn = TextEditingController();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
 
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         body: SafeArea(
           child: Stack(
@@ -165,13 +165,12 @@ class RegistrationPage extends GetWidget<FirebaseController>{
                           onTap:(){
                             final close = context.showLoading(msg: "Loading");
                             Future.delayed(4.seconds, close); // Removes toast after 2 seconds
-                            RegisterUser();
+                           RegisterUser(email.text,password.text,context);
+
+
                           },
                           child: "Sign-Up".text.white.light.xl.makeCentered().box.white.shadowOutline(outlineColor: Colors.grey).color(Color(0XFFFF0772)).roundedLg.make().w(150).h(40)),
                       HeightBox(140),
-                      "Login with".text.black.makeCentered(),
-
-                     SocialSignWidgetRow()
 
                     ],
                   ),
@@ -182,7 +181,7 @@ class RegistrationPage extends GetWidget<FirebaseController>{
         ),
         bottomNavigationBar: GestureDetector(
           onTap: (){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ProviderLogin()));
           },
           child: RichText(text: TextSpan(
             text: 'New User?',
@@ -201,11 +200,19 @@ class RegistrationPage extends GetWidget<FirebaseController>{
         )
     );
   }
-  void RegisterUser() {
 
+  void RegisterUser(String email,String password,context)async {
 
-     controller.createUser(firstn.text, lastn.text, email.text, password.text);
+    ProviderState providerState = Provider.of<ProviderState>(context,listen: false);
+
+    try{
+      if(await providerState.CreateUserAccount(email, password) ){
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ProviderLogin()));
+      }
+    }catch(e)
+    {
+
+    }
 
   }
 }
-

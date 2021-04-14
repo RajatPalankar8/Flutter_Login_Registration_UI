@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login_ui/GetXHelper/FirebaseController.dart';
+import 'package:flutter_login_ui/GetXExample/GetXHelper/FirebaseController.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
